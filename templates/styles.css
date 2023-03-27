@@ -1,0 +1,69 @@
+/*-------------------------------------------------------------------- */
+/*------------------------- CUSTOM PROPERTIES ------------------------ */
+/*-------------------------------------------------------------------- */
+
+:root {
+    /*Colors*/
+    --clr-blueprimary: #000075;
+    --clr-bluesecondary: #0000FF;
+    --clr-lightblue: #C4E0ED;
+    --clr-white: #ffffff;
+
+    /*Drop Shadow*/
+    --ds-black: 0px 10px 30px rgba(0, 0, 0, 0.16);
+
+    /*Fonts*/
+    --ff-primary: "Proxima Nova", sans-serif;
+
+}
+
+/*-------------------------------------------------------------------- */
+/*------------------------ BOILER PLATE STYLES ----------------------- */
+/*-------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body, 
+h1, h2, h3, h4, h5, h6,
+p, hr, ul {
+    margin: 0;
+    padding: 0;
+    font-family: var(--ff-primary);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 48px 0;
+}
+
+h2 {
+    font-size: 28px;
+    margin: 32px 0;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5, h6, p {
+    font-size: 16px;
+}
+
+img {
+    width: 100%;
+   
+}
