@@ -67,3 +67,31 @@ img {
     width: 100%;
    
 }
+
+
+/*-------------------------------------------------------------------- */
+/*----------------------------- NAV STYLES --------------------------- */
+/*-------------------------------------------------------------------- */
+
+.nav-container {
+    width: 100%;
+    padding: 0 5%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav img {
+    width: 250px;
+    padding-top: 16px;
+}
+
+.nav a {
+    font-size: 24px;
+    color: var(--clr-blueprimary);
+}
+
+
