@@ -8,9 +8,15 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 class driver(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first = db.Column(db.String(50))
-    last = db.Column(db.String(50))
+    DriverID = db.Column(db.Integer, primary_key=True)
+    FirstName = db.Column(db.String(50))
+    LastName = db.Column(db.String(50))
+
+    def toDict(self):
+        return {
+            "first": self.FirstName,
+            "last": self.LastName
+        }
     
 
 class delivery(db.Model):
@@ -23,6 +29,10 @@ class delivery(db.Model):
 @app.route('/')
 def index():
     return render_template('layout.html')
+
+@app.route('/test')
+def test():
+    return list(d.toDict() for d in driver.query.all())
 
 if __name__ == "__main__":
     #db.create_all()
