@@ -28,13 +28,12 @@
         <div class="container">
             <section class="delivery-section">
                 <h2>Unassiged Deliveries</h2>
-                <div class="delivery-list">
+                <div class="delivery-list unassigned-list">
+                    {% for del in unassigned %}
                     <div class="delivery-item">
-                        <h3>Delivery ID: 1</h3>
-                        <h4>Customer Name</h4>
-                        <p>123 Amazing Road</p>
-                        <p>Amazing Town</p>
-                        <p>Amazing Post Code</p>
+                        <h3>Delivery ID: {{ del.DeliveryID }}</h3>
+                        <h4>{{ del.CompanyName }}</h4>
+                        <p>{{ del.Address }}</p>
                         <div class="assign-row">
                             <select name="driver-list" id="driver-list">
                                 <option value="Driver 1">Driver 1</option>
@@ -46,36 +45,20 @@
                             <button>Assign</button>
                         </div>
                     </div>
-                    <div class="delivery-item">
-                        <h3>Delivery ID: 2</h3>
-                        <h4>Customer Name</h4>
-                        <p>123 Amazing Road</p>
-                        <p>Amazing Town</p>
-                        <p>Amazing Post Code</p>
-                        <div class="assign-row">
-                            <select name="driver-list" id="driver-list">
-                                <option value="Driver 1">Driver 1</option>
-                                <option value="Driver 2">Driver 2</option>
-                                <option value="Driver 3">Driver 3</option>
-                                <option value="Driver 4">Driver 4</option>
-                                <option value="Driver 5">Driver 5</option>
-                            </select>
-                            <button>Assign</button>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
             <section class="delivery-section">
                 <h2>Assigned Deliveries</h2>
-                <div class="delivery-list">
+                <div class="delivery-list assigned-list">
+                    {% for del in assigned %}
                     <div class="delivery-item">
-                        <h3>Delivery ID: 3</h3>
-                        <h4>Customer Name</h4>
-                        <p>123 Amazing Road</p>
-                        <p>Amazing Town</p>
-                        <p>Amazing Post Code</p>
-                        <h3 class="assigned">Assigned To: Driver 5</h3>
+                        <h3>Delivery ID: {{ del.DeliveryID }}</h3>
+                        <h4>{{ del.CompanyName }}</h4>
+                        <p>{{ del.Address }}</p>
+                        <h3 class="assigned">Assigned To: {{ del.driver.FirstName }} {{ del.driver.LastName }}</h3>
                     </div>
+                    {% endfor %}
                 </div>
             </section>
         </div>

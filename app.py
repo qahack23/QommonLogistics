@@ -11,6 +11,7 @@ class driver(db.Model):
     DriverID = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(50))
     LastName = db.Column(db.String(50))
+    Deliveries = db.relationship("delivery", backref="driver")
 
     def toDict(self):
         return {
@@ -20,15 +21,18 @@ class driver(db.Model):
     
 
 class delivery(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    companyname = db.Column(db.String(255))
-    address = db.Column(db.String(255))
-    driverid = db.Column(db.Integer, db.ForeignKey('driver.id'))
+    DeliveryID = db.Column(db.Integer, primary_key=True)
+    Address = db.Column(db.String(255))
+    CompanyName = db.Column(db.String(255))
+    ContactName = db.Column(db.String(255))
+    DriverID = db.Column(db.Integer, db.ForeignKey('driver.DriverID'))
 
 
 @app.route('/')
 def index():
-    return render_template('layout.html')
+    unassigned=delivery.query.filter_by(DriverID=None).all()
+    assigned = [d for d in delivery.query.all() if d not in unassigned]
+    return render_template('layout.html', unassigned=unassigned, assigned=assigned)
 
 @app.route('/test')
 def test():
