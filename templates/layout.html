@@ -35,14 +35,15 @@
                         <h4>{{ del.CompanyName }}</h4>
                         <p>{{ del.Address }}</p>
                         <div class="assign-row">
-                            <select name="driver-list" id="driver-list">
-                                <option value="Driver 1">Driver 1</option>
-                                <option value="Driver 2">Driver 2</option>
-                                <option value="Driver 3">Driver 3</option>
-                                <option value="Driver 4">Driver 4</option>
-                                <option value="Driver 5">Driver 5</option>
-                            </select>
-                            <button>Assign</button>
+                            <form method="POST" action="">
+                                <input name="del_id" type="hidden" value="{{ del.DeliveryID }}"></input>
+                                <select name="driver-list" id="driver-list">
+                                    {% for driver in drivers %}
+                                    <option value="{{ driver.DriverID }}">{{ driver.FirstName }} {{ driver.LastName }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit" name="assign">Assign</button>
+                            </form>                            
                         </div>
                     </div>
                     {% endfor %}

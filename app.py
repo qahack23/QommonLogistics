@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -28,15 +28,27 @@ class delivery(db.Model):
     DriverID = db.Column(db.Integer, db.ForeignKey('driver.DriverID'))
 
 
-@app.route('/')
-def index():
-    unassigned=delivery.query.filter_by(DriverID=None).all()
-    assigned = [d for d in delivery.query.all() if d not in unassigned]
-    return render_template('layout.html', unassigned=unassigned, assigned=assigned)
+@app.before_first_request
+def reset():
+    for deliv in delivery.query.all():
+        deliv.DriverID = None
+        db.session.commit()
 
-@app.route('/test')
-def test():
-    return list(d.toDict() for d in driver.query.all())
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    unassigned = delivery.query.filter_by(DriverID=None).all()
+    assigned = [d for d in delivery.query.all() if d not in unassigned]
+    drivers = driver.query.all()
+    if request.method == 'POST':
+        delivery_to_assign = delivery.query.get(request.form['del_id'])
+        delivery_to_assign.DriverID = request.form['driver-list']
+        db.session.commit()
+        return redirect(url_for('bounce'))
+    return render_template('layout.html', unassigned=unassigned, assigned=assigned, drivers=drivers)
+
+@app.route('/bounce')
+def bounce():
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     #db.create_all()
