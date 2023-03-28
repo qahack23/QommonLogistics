@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Qommon Logistics</title>
+</head>
+<body>
+    <header class="nav-container">
+        <ul class="nav">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="company-logo"></a>
+            </li>
+            <li>
+                <a href="#">Login</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="container">
+            <section class="delivery-section">
+                <h2>Unassiged Deliveries</h2>
+                <div class="delivery-list">
+                    <div class="delivery-item">
+                        <h3>Delivery ID: 1</h3>
+                        <h4>Customer Name</h4>
+                        <p>123 Amazing Road</p>
+                        <p>Amazing Town</p>
+                        <p>Amazing Post Code</p>
+                        <div class="assign-row">
+                            <select name="driver-list" id="driver-list">
+                                <option value="Driver 1">Driver 1</option>
+                                <option value="Driver 2">Driver 2</option>
+                                <option value="Driver 3">Driver 3</option>
+                                <option value="Driver 4">Driver 4</option>
+                                <option value="Driver 5">Driver 5</option>
+                            </select>
+                            <button>Assign</button>
+                        </div>
+                    </div>
+                    <div class="delivery-item">
+                        <h3>Delivery ID: 2</h3>
+                        <h4>Customer Name</h4>
+                        <p>123 Amazing Road</p>
+                        <p>Amazing Town</p>
+                        <p>Amazing Post Code</p>
+                        <div class="assign-row">
+                            <select name="driver-list" id="driver-list">
+                                <option value="Driver 1">Driver 1</option>
+                                <option value="Driver 2">Driver 2</option>
+                                <option value="Driver 3">Driver 3</option>
+                                <option value="Driver 4">Driver 4</option>
+                                <option value="Driver 5">Driver 5</option>
+                            </select>
+                            <button>Assign</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="delivery-section">
+                <h2>Assigned Deliveries</h2>
+                <div class="delivery-list">
+                    <div class="delivery-item">
+                        <h3>Delivery ID: 3</h3>
+                        <h4>Customer Name</h4>
+                        <p>123 Amazing Road</p>
+                        <p>Amazing Town</p>
+                        <p>Amazing Post Code</p>
+                        <h3 class="assigned">Assigned To: Driver 5</h3>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

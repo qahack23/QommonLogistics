@@ -1,0 +1,163 @@
+/*-------------------------------------------------------------------- */
+/*------------------------- CUSTOM PROPERTIES ------------------------ */
+/*-------------------------------------------------------------------- */
+
+:root {
+    /*Colors*/
+    --clr-blueprimary: #000075;
+    --clr-bluesecondary: #0000FF;
+    --clr-lightblue: #C4E0ED;
+    --clr-white: #ffffff;
+
+    /*Drop Shadow*/
+    --ds-black: 0px 10px 30px rgba(0, 0, 0, 0.16);
+
+    /*Fonts*/
+    --ff-primary: 'Montserrat', sans-serif;
+
+}
+
+/*-------------------------------------------------------------------- */
+/*------------------------ BOILER PLATE STYLES ----------------------- */
+/*-------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body, 
+h1, h2, h3, h4, h5, h6,
+p, hr, ul {
+    margin: 0;
+    padding: 0;
+    font-family: var(--ff-primary);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5, h6, p {
+    font-size: 16px;
+}
+
+img {
+    width: 100%;
+   
+}
+
+
+/*-------------------------------------------------------------------- */
+/*----------------------------- NAV STYLES --------------------------- */
+/*-------------------------------------------------------------------- */
+
+.nav-container {
+    position: fixed;
+    background-color: var(--clr-white);
+    width: 100%;
+    padding: 0 5%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 112px;
+}
+
+.nav img {
+    width: 250px;
+}
+
+.nav a {
+    font-size: 24px;
+    color: var(--clr-blueprimary);
+}
+
+
+/*-------------------------------------------------------------------- */
+/*----------------------------- MAIN STYLES -------------------------- */
+/*-------------------------------------------------------------------- */
+
+main {
+    background-color: var(--clr-lightblue);
+    height: 100vh;
+    padding-top: 112px;
+}
+
+.container {
+    margin: 112px 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.delivery-section {
+    width: 50%;
+}
+
+.delivery-list {
+    padding-top: 64px;
+}
+
+.delivery-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 400px;
+    padding: 16px;
+    margin: 32px 0;
+}
+
+.delivery-item h3, h4 {
+    margin-bottom: 8px;
+}
+
+.assign-row {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.assign-row button {
+    padding: 12px 32px;
+    font-family: var(--ff-primary);
+    font-weight: 700;
+    border-radius: 8px;
+    border-style: none;
+    color: #ffffff;
+    background-color: var(--clr-blueprimary);
+    cursor: pointer;
+    
+}
+
+.assign-row select {
+    padding: 12px 32px;
+    font-family: var(--ff-primary);
+    font-weight: 700;
+}
+
+
+.assigned {
+    margin-top: 8px;
+    color: #21b603;
+}
